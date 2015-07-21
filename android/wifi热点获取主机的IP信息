@@ -1,0 +1,20 @@
+--记录，还没有验证呢，验证完补充上完整的
+
+
+WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+if (!wifiManager.isWifiEnabled()) {
+  System.out.println("=================");
+  wifiManager.setWifiEnabled(true);
+}
+WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+String IPAddress = intToIp(wifiInfo.getIpAddress());
+System.out.println("IPAddress-->>" + IPAddress);
+
+DhcpInfo dhcpinfo = wifiManager.getDhcpInfo();
+String serverAddress = intToIp(dhcpinfo.serverAddress);
+System.out.println("serverAddress-->>" + serverAddress);
+
+
+private String intToIp(int dhcp.serverAddress) {
+  return (i & 0xFF) + "." + ((i >> 8) & 0xFF) + "." + ((i >> 16) & 0xFF) + "."+ ((i >> 24) & 0xFF);
+}
