@@ -1,0 +1,55 @@
+使用apt-get方式为Ubuntu安装PHP＋MySQL＋Apache
+
+分别执行如下命令：
+
+(1)安装MYSQL
+
+sudo apt-get install mysql-server
+
+sudo apt-get install mysql-client
+(2)安装Apache
+
+sudo apt-get install apache2
+(3)安装PHP
+
+sudo apt-get install php5
+
+sudo apt-get install libapache2-mod-auth-mysql
+
+sudo apt-get install php5-mysql
+安装结束后，检测是否成功：
+
+（1）检测Mysql是否正常
+
+在终端中输入：mysql -uusername -ppassword (将username和password替换为你所设置的)看是否可以正常登陆
+
+（2）检测Apache是否正常
+
+在浏览器中打开：http://localhost/
+
+如果出现如下信息，则表明正常。
+
+It works!
+
+This is the default web page for this server.
+
+The web server software is running but no content has been added, yet.
+（3）检测PHP是否正常
+
+Ubuntu下Apache的默认安装路径为/var/www/，到其目录下新建info.php文件，文件内容为：
+
+<?php
+phpinfo();
+?>
+然后在浏览器中打开：http://localhost/info.php 看是否正常。
+
+注：在该目录直接新建文件是没有权限的，为其增加当前用户权限：
+
+su root（用root用户）
+
+chown username /var/www（将username替换为您当前用户的用户名）
+
+exit（退出root）
+如果，您的ubuntu系统root用户还不可用，那是因为ubuntu系统默认root密码为空，您可以通过如下命令设置密码：
+
+sudo passwd -l root
