@@ -1,0 +1,8 @@
+	//  -gcflags "-N -l"
+	//  ssh root@114.55.250.61 [supervisorctl] /zjxl~2010 /ps aux | grep [keyword] /
+	//  scp -r gamedata[file/folder] root@114.55.250.61:/home/game/server0
+	//	cron 表达式
+	//	supervisor
+	//  admintest.limilimi.com/admin/html/
+
+	//  https://github.com/zsounder/djinni
