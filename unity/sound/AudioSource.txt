@@ -1,0 +1,9 @@
+  AudioSource.PlayClipAtPoint播放音效没有声音，或者声音小，是因为输出的position距离AudioListener太远
+  如果只是用用于ui使用，解决方案如下：
+  private static Vector3 s_audioListenerPosition = Vector3.zero;
+  
+ ...
+ s_audioListenerPosition = FindObjectOfType<AudioListener>().transform.position;
+ 
+ ...
+ AudioSource.PlayClipAtPoint(clip, s_audioListenerPosition, volume);
